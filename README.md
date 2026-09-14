@@ -1,4 +1,4 @@
-# XQon s-japanese
+# XQon s-ja
 
 text-to-text model
 
