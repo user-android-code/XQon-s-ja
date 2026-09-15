@@ -29,7 +29,7 @@ if "messages" not in st.session_state:
 if "total_tokens" not in st.session_state:
     st.session_state.total_tokens = 0
 
-st.sidebar.write(f"{st.session_state.total_tokens} tokens")
+st.write(f"{st.session_state.total_tokens} tokens")
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
