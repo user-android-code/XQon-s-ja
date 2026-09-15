@@ -26,6 +26,10 @@ tokenizer, model = load_model()
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+if "total_tokens" not in st.session_state:
+    st.session_state.total_tokens = 0
+
+st.sidebar.write(f"{st.session_state.total_tokens} tokens")
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
@@ -38,7 +42,8 @@ if prompt := st.chat_input(""):
 
     with st.chat_message("assistant"):
         with st.spinner(""):
-            messages = [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
+            recent_messages = st.session_state.messages[-6:]
+            messages = [{"role": m["role"], "content": m["content"]} for m in recent_messages]
             
             try:
                 input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
@@ -46,6 +51,7 @@ if prompt := st.chat_input(""):
                 input_text = prompt
 
             inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
+            input_tokens_count = inputs["input_ids"].shape[1]
 
             with torch.no_grad():
                 outputs = model.generate(
@@ -58,7 +64,12 @@ if prompt := st.chat_input(""):
                 )
 
             input_length = inputs["input_ids"].shape[1]
-            response = tokenizer.decode(outputs[0][input_length:], skip_special_tokens=True)
+            generated_tokens = outputs[0][input_length:]
+            output_tokens_count = len(generated_tokens)
+            
+            st.session_state.total_tokens += (input_tokens_count + output_tokens_count)
+
+            response = tokenizer.decode(generated_tokens, skip_special_tokens=True)
 
             st.write(response)
             st.session_state.messages.append({"role": "assistant", "content": response})
@@ -66,3 +77,5 @@ if prompt := st.chat_input(""):
             gc.collect()
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
+            
+            st.rerun()
