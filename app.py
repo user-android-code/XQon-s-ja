@@ -6,7 +6,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 st.set_page_config(page_title="XQon")
 st.title("XQon s-ja")
 
-MODEL_ID = "Nagohachi/tiny-lm-japanese-500m-dpo-v1"
+MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
 
 @st.cache_resource
 def load_model():
