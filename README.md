@@ -1,4 +1,4 @@
-# XQon s-omni (pronounced: "Quon")
+# XQon s-omni
 
 > **A highly optimized, ultra-lightweight (<1GB) multilingual AI model capable of speaking 29+ languages.**
 
@@ -8,7 +8,6 @@
 
 Despite its tiny footprint of **under 1GB**, it breaks the barrier of language limitations by supporting **29+ languages** seamlessly.
 
-- **Pronunciation:** The "X" is silent. It is pronounced **"Quon"**.
 - **Key Philosophy:** Maximum efficiency, universal communication.
 
 ## Supported Languages
