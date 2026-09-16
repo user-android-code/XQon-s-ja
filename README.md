@@ -2,7 +2,6 @@
 
 > **A highly optimized, ultra-lightweight (<1GB) multilingual AI model capable of speaking 29+ languages.**
 
----
 
 ## Overview
 
