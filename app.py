@@ -5,7 +5,7 @@ import threading
 from transformers import AutoTokenizer, AutoModelForCausalLM, TextIteratorStreamer
 
 st.set_page_config(page_title="XQon")
-st.title("XQon s-ja")
+st.title("XQon s-omni")
 
 MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
 
