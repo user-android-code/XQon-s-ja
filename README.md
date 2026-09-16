@@ -2,7 +2,6 @@
 
 > **A highly optimized, ultra-lightweight (<1GB) multilingual AI model capable of speaking 29+ languages.**
 
-
 ## Overview
 
 **XQon s-omni** ("s" stands for **Speak**, and "omni" stands for **Universal/All**) is a next-generation compact language model designed for efficient, local, and edge-device deployment. 
@@ -12,14 +11,10 @@ Despite its tiny footprint of **under 1GB**, it breaks the barrier of language l
 - **Pronunciation:** The "X" is silent. It is pronounced **"Quon"**.
 - **Key Philosophy:** Maximum efficiency, universal communication.
 
----
-
 ## Supported Languages
 
 Supports 29+ major global languages, including but not limited to:
 - English, Japanese, Chinese, Spanish, French, German, Korean, and 22+ more.
-
----
 
 ## Model Specifications
 
