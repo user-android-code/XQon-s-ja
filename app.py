@@ -44,7 +44,9 @@ if prompt := st.chat_input("Ask XQon"):
 
     with st.chat_message("assistant"):
         recent_messages = st.session_state.messages[-6:]
-        messages = [{"role": m["role"], "content": m["content"]} for m in recent_messages]
+        
+        messages = [{"role": "system", "content": "your XQon"}]
+        messages.extend([{"role": m["role"], "content": m["content"]} for m in recent_messages])
         
         try:
             input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
